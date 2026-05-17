@@ -136,7 +136,7 @@ export default function App() {
       {/* Header */}
       <div style={{ padding: "32px 20px 20px", background: "linear-gradient(180deg,#1a1a2e,#0f0f23)" }}>
         <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 2.5, color: "#e94560", fontFamily: '"JetBrains Mono",monospace', fontWeight: 600, marginBottom: 6 }}>Health Intelligence</div>
-        <h1 style={{ margin: "0 0 4px", fontSize: 28, fontWeight: 800, letterSpacing: "-0.03em", background: "linear-gradient(90deg,#fff,#8892b0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>30-Day Dashboard</h1>
+        <h1 style={{ margin: "0 0 4px", fontSize: 28, fontWeight: 800, letterSpacing: "-0.03em", background: "linear-gradient(90deg,#fff,#8892b0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{stats.totalDays}-Day Dashboard</h1>
         <p style={{ margin: 0, fontSize: 13, color: "#5a6a8a" }}>
           {fmt(META.periodStart)} – {fmt(META.periodEnd)}, 2026 · Week {META.weekNumber} · Updated {META.lastUpdated}
         </p>
@@ -156,7 +156,7 @@ export default function App() {
         {/* ═══ SECTION 1 ═══ */}
         {show("all", "activity", "sleep", "heart") && (
           <>
-            <SectionTitle number="1" title="Your Data" subtitle="30 days of biometric signals, decoded" />
+            <SectionTitle number="1" title="Your Data" subtitle={`${stats.totalDays} days of biometric signals, decoded`} />
             {show("all", "activity") && (
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 20 }}>
                 <StatCard label="Avg Steps" value={stats.stepsAvg.toLocaleString()} unit="/day" color="#4ecdc4" subtext={`${stats.daysOver10k} days hit 10K`} icon="🚶" />
